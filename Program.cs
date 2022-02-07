@@ -19,7 +19,9 @@ namespace Rudniev_Snake_V2
             Application.SetCompatibleTextRenderingDefault(false);
 
             MainForm mainForm;
-            if (arg.Length == 1)
+            if (arg.Length == 2)
+                mainForm = new MainForm(Convert.ToInt32(arg[0]), Convert.ToInt32(arg[1]));
+            else if (arg.Length == 1)
                 mainForm = new MainForm(Convert.ToInt32(arg[0]));
             else
                 mainForm = new MainForm();

@@ -20,11 +20,16 @@ namespace Rudniev_Snake_V2
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            Thread.Sleep(model.SpeedGame);
+            Invalidate();
+
             for (int i = 0; i < model.area.Size; i++)
                 for (int j = 0; j < model.area.Size; j++)
                     if (model.area.Grid[i, j] == 1)
                         e.Graphics.DrawImage(model.area.ImgWall, new Point(i * 20, j * 20));
+
             e.Graphics.DrawImage(model.food.ImgFood, new Point(model.food.X * 20, model.food.Y * 20));
+            
             for (int i = 1; i < model.snake.Size; i++)
                 e.Graphics.DrawImage(model.snake.ImgBody, new Point(model.snake.Location[i, 0] * 20, model.snake.Location[i, 1] * 20));
             switch (model.snake.direction)
@@ -46,8 +51,7 @@ namespace Rudniev_Snake_V2
             if (model.gameStatus == Status.over)
                 return;
 
-            Thread.Sleep(model.SpeedGame);
-            Invalidate();
+            
         }
 
         private void View_KeyPress(object sender, KeyPressEventArgs e)
@@ -61,5 +65,6 @@ namespace Rudniev_Snake_V2
             else if (e.KeyChar.ToString().ToUpper() == "D" && model.snake.direction != Direction.left)
                 model.snake.direction = Direction.right;
         }
+
     }
 }

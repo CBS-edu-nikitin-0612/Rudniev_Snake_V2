@@ -18,8 +18,8 @@ namespace Rudniev_Snake_V2
 
         Thread modelPlay;
 
-        public MainForm() : this(12) { }
-        public MainForm(int sizeArea) : this(sizeArea, 1000) { }
+        public MainForm() : this(24) { }
+        public MainForm(int sizeArea) : this(sizeArea, 300) { }
         public MainForm(int sizeArea, int speedGame)
         {
             InitializeComponent();
@@ -29,10 +29,8 @@ namespace Rudniev_Snake_V2
             view.Width = sizeArea * 20;
             view.Height = sizeArea * 20;
             this.Controls.Add(view);
-            this.Width = view.Width + 16;
-            this.Height = view.Height + 39;
-            this.MaximumSize = this.Size;
-            this.MinimumSize = this.Size;
+            this.Width = view.Width + 40;
+            this.Height = view.Height + 60;
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -44,9 +42,9 @@ namespace Rudniev_Snake_V2
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            MessageBox.Show($"Game over! Your score: {(model.snake.Size - 3) * 10}", "Snake");
             if (modelPlay != null)
                 modelPlay.Abort();
-            MessageBox.Show($"Game over! Your score: {(model.snake.Size - 3) * 10}", "Snake");
         }
     }
 }

@@ -35,6 +35,7 @@ namespace Rudniev_Snake_V2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.DoubleBuffered = true;
             this.Name = "View";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.View_KeyPress);
             this.ResumeLayout(false);

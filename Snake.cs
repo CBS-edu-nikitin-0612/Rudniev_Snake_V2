@@ -62,7 +62,7 @@ namespace Rudniev_Snake_V2
             int[,] temp = new int[size + 1, 2];
             temp[size, 0] = phantomTail[0, 0];
             temp[size, 1] = phantomTail[0, 1];
-            for (int i = 0; i < size - 1; i++)
+            for (int i = 0; i < size; i++)
             {
                 temp[i, 0] = Location[i, 0];
                 temp[i, 1] = Location[i, 1];

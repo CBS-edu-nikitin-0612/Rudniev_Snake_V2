@@ -37,6 +37,8 @@ namespace Rudniev_Snake_V2
                 if (gameStatus == Status.eat)
                 {
                     EatFood();
+                    if (SpeedGame > 100)
+                        SpeedGame -= 20;
                     gameStatus = Status.play;
                 }
             }
